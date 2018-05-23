@@ -1,0 +1,41 @@
+<%= link_to 'Back', rentals_path(@rental)%>
+
+<%= form_for @rental do |f| %>
+<div>
+<%= f.label :address %>
+<%= f.text_field :address %>
+</div>
+<div>
+<%= f.label :rooms %>
+<%= f.text_field :rooms %>
+</div>
+
+<div>
+<%= f.label :price %>
+<%= f.text_field :price %>
+</div>
+<div>
+<%= f.label :pointGoal %>
+<%= f.text_field :pointGoal %>
+</div>
+<div>
+<%= f.label :propertyType %>
+<%= f.text_field :propertyType %>
+</div>
+<div>
+<%= f.label :yearBuilt %>
+<%= f.text_field :yearBuilt %>
+</div>
+<div>
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+</div>
+<!-- fix later -->
+<div>
+  <%= f.label :avatar%>
+  <%= f.file_field :avatar%>
+</div>
+
+<%= f.submit %>
+
+<% end %>

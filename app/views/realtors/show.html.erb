@@ -1,0 +1,47 @@
+<h2 class="center-align"><%= current_realtor.companyName %> Profile</h2><br/>
+<h3 class="center-align">Your Posted Rentals</h3>
+<% if current_realtor %>
+
+<% @rentals.each do |rental| %>
+
+<% if rental.avatar.url %>
+<div class="center-align">
+<%= image_tag(rental.avatar.url) %>
+</div>
+<% end %>
+<div class="center-align">
+  <h5>Address</h5><br/>
+ <%= rental.address %>
+</div>
+<div class="center-align">
+    <h5>Space Size</h5><br/>
+<%= rental.size %>
+</div>
+  <div class="center-align">
+    <h5>Number of Rooms</h5><br/>
+ <%= rental.rooms %>
+</div>
+<div class="center-align">
+  <h5>Price of Rental</h5><br/>
+<%= rental.price %>
+</div>
+<div class="center-align">
+  <h5>Points Needed</h5><br/>
+ <%= rental.pointGoal %>
+</div>
+<div class="center-align">
+  <h5>Type of Property</h5><br/>
+ <%= rental.propertyType %>
+</div>
+<div class="center-align">
+  <h5>Year Built</h5><br/>
+<%= rental.yearBuilt %>
+</div>
+</div>
+<% rental.leases.each do |lease| %>
+  Leased by: <%= lease.user.firstName %>
+  <%= link_to 'Completed Form', lease.avatar.url %><br/>
+<% end %>
+
+<% end%>
+<% end%>

@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag 'rentals' %>
+<h3 class="center-align">Rental Listings</h3><br/>
+<% @rentals.each do |rental|%>
+<div class="divider"></div><br/>
+<div class="container">
+  <div class="row">
+    <div class="center-align">
+
+  <% if rental.avatar.url %>
+    <div class="center-align" id="img">
+
+      <%= image_tag(rental.avatar.url) %>
+    </div>
+  <% end %>
+  <h5>Address</h5><br/>
+<%= rental.address %>
+</div><br/>
+<div class="center-align">
+  <h5>Space Size</h5><br/>
+  <%= rental.size %>
+</div>
+<div class="center-align">
+  <h5>Number of Rooms</h5><br/>
+   <%= rental.rooms %>
+</div>
+<div class="center-align">
+  <h5>Price of Rental</h5><br/>
+   <%= rental.price %>
+</div>
+</div>
+<div class="center-align">
+  <!-- Posts options -->
+  <!-- Link to full posts -->
+  <p><%= link_to 'Full post', rental_path(rental)%></p>
+  <% if current_realtor && current_realtor.id == rental.realtor_id %>
+<h6>Editing Options</h6>
+  <!-- Edit Posts path -->
+  <p><%= link_to 'Edit', edit_rental_path(rental)%></p>
+  <!-- Posts deletion -->
+  <p><%= link_to 'Delete', delete_rental_path(rental), method: :delete %></p>
+
+    <% end %>
+
+</div>
+</div>
+<br>
+<% end %>

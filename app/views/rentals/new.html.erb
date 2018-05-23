@@ -1,0 +1,44 @@
+<h1>Make a listing</h1>
+
+<%= form_for @rental, url: rentals_path do |f| %>
+
+<div>
+<h5>Building's Address</h5>
+<%= f.text_field :address %>
+</div>
+<div>
+<h5>Number of Rooms</h5>
+<%= f.text_field :rooms %>
+</div>
+
+<div>
+  <h5>Size</h5>
+  <%= f.text_field :size %>
+</div>
+
+<div>
+<h5>Rent</h5>
+<%= f.text_field :price %>
+</div>
+<div>
+<h5>Point Goal</h5>
+<%= f.text_field :pointGoal %>
+</div>
+<div>
+<h5>Property Type</h5>
+<%= f.text_field :propertyType %>
+</div>
+<div>
+<h5>Year Built</h5>
+<%= f.text_field :yearBuilt %>
+</div>
+
+<div>
+  <h4>Choose Apartment Image</h4>
+  <%= f.label :avatar %><br />
+  <%= f.file_field :avatar %>
+</div>
+
+<%= f.submit %>
+
+<% end %>

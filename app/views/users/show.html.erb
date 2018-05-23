@@ -1,0 +1,15 @@
+<h2 class="center-align"><%= current_user.firstName %> Profile</h2>
+<h4 class="center-align">Leases Created</h4><br/>
+<% if current_user %>
+<% current_user.leases.each do |lease|%>
+<h2>Name of Realtor</h2>
+<h4><%= lease.rental.realtor.companyName %></h4><br/>
+<h2>Realtor Contact Info</h2>
+<h4><%= lease.rental.realtor.phoneNumber %></h4><br/>
+<h4><%= lease.rental.realtor.email %></h4><br/>
+<h4>Rental Information</h4>
+Address:<h4><%= lease.rental.address %></h4>
+Price:<h4><%= lease.rental.price %></h4>
+Points needed:<h4><%= lease.rental.pointGoal %></h4>
+<% end %>
+<% end %>

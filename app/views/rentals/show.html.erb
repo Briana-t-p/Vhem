@@ -1,0 +1,44 @@
+<h3 class="center-align">Full Rental Profile</h3>
+<div class="center-align">
+
+<div>
+  <% if @rental.avatar.url %>
+<%= image_tag(@rental.avatar.url) %>
+<% end %>
+</div>
+
+<div>
+Address: <%= @rental.address %>
+</div>
+<div>
+Size: <%= @rental.size %>
+</div>
+  <div>
+Rooms: <%= @rental.rooms %>
+</div>
+<div>
+Price: <%= @rental.price %>
+</div>
+<div>
+Point Goal: <%= @rental.pointGoal %>
+</div>
+<div>
+Property Type: <%= @rental.propertyType %>
+</div>
+<div>
+Year Built: <%= @rental.yearBuilt %>
+</div>
+</div>
+<% if current_realtor && current_realtor.id == @rental.realtor_id %>
+
+<p><%= link_to 'Edit', edit_rental_path(@rental)%></p>
+
+<p><%= link_to 'Delete', delete_rental_path(@rental), method: :delete %></p>
+<% end %>
+<%if current_user %>
+<h4 class="center-align">Fill out this form before creating a lease</h4>
+<h5 class="center-align"><%= link_to "Grab Lease", Rental.find(params[:id]).realtor.avatar.url %></h5>
+<%= render 'leases/new'%>
+<% end %>
+
+<%= link_to 'Back', rentals_path(@rental)%>
